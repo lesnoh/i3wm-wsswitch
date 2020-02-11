@@ -14,5 +14,6 @@ Currently the script only works with bash.
 
 __Add somthing like this to your i3 config__
 
-bindsym XF86Forward exec "bash ~/src/i3wm-workspaceswitch/i3wm-wsswitch.sh -r"
+```bindsym XF86Forward exec "bash ~/src/i3wm-workspaceswitch/i3wm-wsswitch.sh -r"
 bindsym XF86Back exec "bash ~/src/i3wm-workspaceswitch/i3wm-wsswitch.sh -l"
+```
