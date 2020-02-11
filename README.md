@@ -10,7 +10,7 @@ If you have two created workspaces "1" and "3" and "1" is focused then "i3wm-wss
 __this has not been tested on multi monitor setups__
 
 # config
-XF86Forward and XF86Back can for example found on Thinkpad T61 above the left and right arrow keys. Change it to your demands.
+XF86Forward and XF86Back can for example be found on Thinkpad T61 above the left and right arrow keys. Change it to your demands.
 
 Currently the script only works with bash.
 
