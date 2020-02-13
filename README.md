@@ -21,6 +21,11 @@ Currently the script only works with bash.
 __Add somthing like this to your i3 config__
 
 ```
+# move to prev / next workspace
+bindsym $mod+XF86Forward workspace next
+bindsym $mod+XF86Back workspace prev
+
+# move to prev / next workspace number and create it if it does not exist
 bindsym XF86Forward exec "bash ~/src/i3wm-workspaceswitch/i3wm-wsswitch.sh -r"
 bindsym XF86Back exec "bash ~/src/i3wm-workspaceswitch/i3wm-wsswitch.sh -l"
 ```
