@@ -6,6 +6,10 @@ i3wm-wsswitch is a script that will cycle through your workspaces.
 
 If you have two created workspaces "1" and "3" and "1" is focused then "i3wm-wsswitch.sh -r" will create an empty workspace "2" and switch to it. If the script is directly executed again it will change the focus to the existing workspace "3".
 
+If you are on workspace 1 and move to the left, the highest already created workspace will be choosen.
+
+If you are moving right the script will create new workspaces up to $WORKSPACE_MAX.
+If you have reached $WORKSPACE_MAX it will move to workspace 1.
 
 __this has not been tested on multi monitor setups__
 

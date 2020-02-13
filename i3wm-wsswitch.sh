@@ -37,11 +37,9 @@ fi
 if [[ " ${unfocused_array[@]} " =~ $chosen_ws ]]; then
 
 	if [[ $ACTION == "-1" ]]; then
-		echo	i3-msg workspace prev
 		i3-msg workspace prev
 		exit 0
 	else
-		echo	i3-msg workspace next
 		i3-msg workspace next
 		exit 0
 	fi
@@ -54,8 +52,6 @@ else
 		max=${unfocused_array[0]}
 		for n in "${unfocused_array[@]}" ; do
 		    if [ "$n" -gt "$max" ]; then max=$n; fi;
-			echo Wert $n;
-			echo $max;
 		done
 		i3-msg workspace number $max
 		exit 0;
