@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # michon <lesnoh@gmx.de> 2020
 
 while getopts rl option
@@ -12,12 +12,12 @@ esac
 done
 
 focused_num=`i3-msg -t get_workspaces | jq '.[] | select(.focused==true).num'`
-unfocused_num=`i3-msg -t get_workspaces | jq '.[] | select(.focused==false).num'`
+list_unfocused_num=`i3-msg -t get_workspaces | jq '.[] | select(.focused==false).num'`
+unfocused_num=`echo $list_unfocused_num | tr ' ' ','`
 
-#echo ${unfocused_num[@]}
+IFS=$',' read -ra unfocused_num<<<"$unfocused_num"
 
 chosen_ws=$(($focused_num $ACTION))
-#echo $chosen_ws
 
 if [[ " ${unfocused_num[@]} " =~ $chosen_ws ]]; then
 	echo "worksapce already created, switching to it.."
@@ -31,8 +31,16 @@ if [[ " ${unfocused_num[@]} " =~ $chosen_ws ]]; then
 	fi
 
 else
-
-#	echo "workspace not there, creating it.."
-#	echo "i3-msg workspace $chosen_ws"
-	i3-msg workspace $chosen_ws
+	if [[ $chosen_ws -eq 0 ]];then
+		max=${unfocused_num[0]}
+		for n in "${unfocused_num[@]}" ; do
+		    if [ "$n" -gt "$max" ]; then max=$n; fi;
+			echo Wert $n;
+			echo $max;
+		done
+		i3-msg workspace number $max
+		exit 0;
+	else
+		i3-msg workspace number $chosen_ws
+	fi
 fi
